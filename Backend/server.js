@@ -46,5 +46,5 @@ app.listen(process.env.PORT, async () => {
         console.log(error);
     }
 
-    console.log(`Serverr is running on http://localhost:${process.env.PORT}`);
+    console.log(`Server is running on - http://localhost:${process.env.PORT}`);
 });
