@@ -129,3 +129,13 @@ This project is all about creating a fully functional e-commerce website where u
 
 3. **Dynamic Display:**
    - Use the product card component to display all products dynamically on the page.gt
+
+### Milestone 12: Filter Products by User Email
+
+1. **Backend:**
+   - Create an endpoint to send products filtered by user email from MongoDB.
+
+2. **Frontend:**
+   - Write a function to fetch filtered data from the backend.
+   - Pass the data to the product card component.
+
