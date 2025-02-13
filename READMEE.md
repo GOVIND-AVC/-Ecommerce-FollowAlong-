@@ -116,3 +116,16 @@ This project is all about creating a fully functional e-commerce website where u
 
 3. **Why Validation?**
    - Ensures only valid data is saved, keeping the database accurate.
+
+
+### Milestone 11: Display Products Dynamically
+
+1. **Backend:**
+   - Create an endpoint to send all product data from MongoDB to the frontend.
+
+2. **Frontend:**
+   - Write a function to fetch product data from the backend.
+   - Pass the fetched data to the product card component.
+
+3. **Dynamic Display:**
+   - Use the product card component to display all products dynamically on the page.gt
