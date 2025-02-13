@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom"; // Import Link for navigation
+
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -93,7 +95,10 @@ const Cart = ({ product }) => {
     return (
         <div className="cart" style={cartStyle}>
             <img src={product.productImage} alt={product.productName} style={imgStyle} />
-            <h3 style={h3Style}>{product.productName}</h3>
+            <Link to={`/product/${product._id}`}>
+                <h3 style={h3Style}>{product.productName}</h3> {/* Make product name clickable */}
+            </Link>
+
             <p style={pStyle}>{product.productDescription}</p>
             <p style={priceStyle}>₹{product.productPrice}</p>
             <div style={buttonContainerStyle}>
@@ -109,6 +114,8 @@ const Cart = ({ product }) => {
 
 Cart.propTypes = {
     product: PropTypes.shape({
+        _id: PropTypes.string.isRequired, // Added validation for _id
+
         productImage: PropTypes.string.isRequired,
         productName: PropTypes.string.isRequired,
         productDescription: PropTypes.string,

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import { useState } from "react";
 
 const ProductForm = ({ initialData = {}, onDelete }) => {

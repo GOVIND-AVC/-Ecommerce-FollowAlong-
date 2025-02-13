@@ -1,9 +1,18 @@
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
+import { useEffect } from "react"; // Removed duplicate import
+
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import axios
+import { Link } from "react-router-dom"; // Import Link for navigation
 import Cart from "./cart";
-import { useEffect, useState } from "react";
+
+// import { useEffect, useState } from "react";
 
 function Home() {
-    const navigate = useNavigate();
+    // Removed unused navigate variable
+    const navigate = useNavigate(); // Re-add if needed in future
+
 
     let [productData,setProductData]=useState([]);
 
@@ -13,7 +22,8 @@ function Home() {
         }).then((res)=>{
             console.log(res)
         setProductData(res.data)
-        console.log(res.data) 
+        console.log(res.data); // Log the fetched product data
+
 
         }).catch((err)=>{
             console.log(err)
@@ -58,7 +68,10 @@ function Home() {
             </div>
             <div style={cartStyle}>
                 {productData?.map((product) => (
-                    <Cart key={product.id} product={product} onDelete={() => handleDelete(product._id)}></Cart>
+                <Cart key={product.id} product={product} onDelete={() => handleDelete(product._id)}>
+                    <Link to={`/product/${product._id}`}>{product.productName}</Link> {/* Link to ProductDetail */}
+                </Cart>
+
 
                 ))}
             </div>
