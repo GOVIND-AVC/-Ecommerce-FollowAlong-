@@ -106,3 +106,13 @@ This project is all about creating a fully functional e-commerce website where u
 3. **Form Validation:**
    - Check that the form fields are filled correctly (e.g., price is a number, name is not empty).
 
+### Milestone 10: Product Schema & Endpoint
+
+1. **Product Schema:**
+   - Define product details (name, description, price, image URL) using Mongoose with validation.
+
+2. **Endpoint Creation:**
+   - Create a POST endpoint to save product data to MongoDB.
+
+3. **Why Validation?**
+   - Ensures only valid data is saved, keeping the database accurate.
