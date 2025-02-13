@@ -139,3 +139,28 @@ This project is all about creating a fully functional e-commerce website where u
    - Write a function to fetch filtered data from the backend.
    - Pass the data to the product card component.
 
+### Milestone 13: Update Existing Data
+
+1. **Backend:**
+   - Create an endpoint to update existing product data in MongoDB.
+
+2. **Frontend:**
+   - Add an edit button to the product card.
+   - On click, send the product data to a form, auto-fill the fields, and allow editing.
+
+3. **Dynamic Update:**
+   - After editing, save the updated data back to MongoDB.
+
+### Milestone 14: Delete Product by ID
+
+1. **Backend:**
+   - Create an endpoint to delete a product from MongoDB using its ID.
+
+2. **Frontend:**
+   - Add a delete button to the product card.
+   - On click, send the product ID to the backend for deletion.
+
+3. **Dynamic Update:**
+   - Remove the deleted product from the UI without refreshing the page.
+
+
