@@ -175,4 +175,15 @@ This project is all about creating a fully functional e-commerce website where u
    - Add the navbar to all pages for smooth navigation.  
 
 
+### Milestone 16: ProductDetails Page  
+
+1. **Create ProductDetails page:** -
+                        This component fetches product data based on the product ID from the URL.
+                        It displays the product's name, image, description, and price.
+                        Users can select a quantity and click the "Add to Cart" button.
+2. **Updated Routing:** -  
+                        A new route was added to navigate to the ProductDetail component when a product is clicked.
+                        Update the Home.jsx Component: Ensure that the product links in the Home component navigate to the ProductDetail page when clicked
+
+
 
