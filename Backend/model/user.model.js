@@ -14,6 +14,17 @@ const userSchema=mongoose.Schema({
         type:String,
         required:true,
     },
+    cart: [{
+        productId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'productCollection'
+        },
+        quantity: {
+            type: Number,
+            required: true
+        }
+    }]
 })
+
 const userModel=mongoose.model("usercollection",userSchema)
 module.exports={userModel}

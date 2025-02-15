@@ -64,7 +64,7 @@ function Home() {
     return (
         <div>
             <div style={containerStyle}>
-                <h1>Welcome to E-Commerce </h1>
+                <h1>Welcome to E-Commerce 🛒 </h1>
             </div>
             <div style={cartStyle}>
                 {productData?.map((product) => (

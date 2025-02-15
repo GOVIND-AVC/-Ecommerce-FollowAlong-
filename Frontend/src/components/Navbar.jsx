@@ -5,7 +5,7 @@ const navBarStyle = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "10px 20px",
-    backgroundColor: "#007bff",
+    backgroundColor:"#fcaa49",
     color: "white",
     position: "sticky",
     top: "0",
