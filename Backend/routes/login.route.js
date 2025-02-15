@@ -20,7 +20,7 @@ loginRouter.post("/login", async (req, res) => {
                     return res.status(500).send({ "msg": "Error comparing passwords" });
                 }
                 if (result) {
-                    let token = jwt.sign({ "user ID": user._id }, process.env.SECRET_KEY);
+                    let token = jwt.sign({ "userID": user._id }, process.env.SECRET_KEY);
                     res.send({ "msg": "Login Successful", "token": token });
                 } else {
                     res.send({ "msg": "Invalid Password" });

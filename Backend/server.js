@@ -6,6 +6,8 @@ const cors = require('cors');
 const { productRouter } = require('./routes/product.route');
 const { loginRouter } = require("./routes/login.route");
 const { signupRouter } = require("./routes/signup.route");
+const { cartRouter } = require("./routes/cart.route");
+
 
 require('dotenv').config();
 const app = express();
@@ -37,6 +39,8 @@ app.post("/create", async (req, res) => {
 app.use(signupRouter);
 app.use(loginRouter);
 app.use("/product", productRouter);
+app.use("/cart", cartRouter);
+
 
 app.listen(process.env.PORT, async () => {
     try {
