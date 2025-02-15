@@ -185,7 +185,9 @@ This project is all about creating a fully functional e-commerce website where u
                         A new route was added to navigate to the ProductDetail component when a product is clicked.
                         Update the Home.jsx Component: Ensure that the product links in the Home component navigate to the ProductDetail page when clicked
 
-### Milestone 16: Backend endpoint to add products to cart and store in database.
-                  Edited the user schema to store cart products .
-                  Added an end point to receive the product details and store in database.
+### Milestone 17: Backend endpoint to add products to cart and store in database.
+1. **Edited the userschema:** 
+                  - Edited the userschema to store cart products
 
+2. **Added cart endpoint:**
+                  - Added a new endpoint to add products to the cart and store in the database.
