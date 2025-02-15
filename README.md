@@ -191,3 +191,10 @@ This project is all about creating a fully functional e-commerce website where u
 
 2. **Added cart endpoint:**
                   - Added a new endpoint to add products to the cart and store in the database.
+
+
+### Milestone 18: Create a new GET endpoint in the cart routes to fetch cart products for a user
+1. **Added a new endpoint:**
+                  - Added a new endpoint to fetch cart products for a user.
+2. **Updated the cart component:**
+                  - Updated the cart component to fetch cart products from the new endpoint and display them in the cart.

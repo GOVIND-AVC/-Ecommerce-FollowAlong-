@@ -45,4 +45,27 @@ cartRouter.post('/add', authMiddleware, async (req, res) => {
     }
 });
 
+// Get cart products for user
+cartRouter.get('/products', authMiddleware, async (req, res) => {
+    try {
+        const user = await userModel.findById(req.user)
+
+            .populate('cart.productId', 'name price image');
+            
+        if (!user) {
+            return res.status(404).send({ message: 'User not found' });
+        }
+
+        const cartProducts = user.cart.map(item => ({
+            product: item.productId,
+            quantity: item.quantity
+        }));
+
+        res.status(200).send(cartProducts);
+    } catch (error) {
+        console.error('Error fetching cart products:', error);
+        res.status(500).send({ message: 'Error fetching cart products' });
+    }
+});
+
 module.exports = { cartRouter };
