@@ -7,12 +7,12 @@ require('dotenv').config();
 
 let loginRouter = express.Router();
 
-loginRouter.post("/login", async (req, res) => {
+loginRouter.post("/", async (req, res) => {
     const { email, password } = req.body;
-
+    console.log(email,password)
     try {
         let user = await userModel.findOne({ email });
-
+        console.log(user)
         if (user) {
             let hashedPassword = user.password;
             bcrypt.compare(password, hashedPassword, function (err, result) {

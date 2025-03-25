@@ -91,4 +91,41 @@ productRouter.post("/create", upload.array('productImage', 12), async (req, res)
     }
 });
 
-module.exports = { productRouter };
+productRouter.put("/increase-quantity/:id", async (req, res) => {
+    const id = req.params.id;
+    const { quantity } = req.body;
+
+    try {
+        const updatedProduct = await productModel.findByIdAndUpdate(id, {
+            $inc: { quantity: quantity }
+        }, { new: true });
+
+        if (!updatedProduct) {
+            return res.status(404).send({ "message": "Product Not found" });
+        }
+        res.status(200).send({ "message": "Successfully increased the product quantity", data: updatedProduct });
+    } catch (error) {
+        res.status(500).json({ "error": error.message });
+    }
+});
+
+productRouter.put("/decrease-quantity/:id", async (req, res) => {
+    const id = req.params.id;
+    const { quantity } = req.body;
+
+    try {
+        const updatedProduct = await productModel.findByIdAndUpdate(id, {
+            $inc: { quantity: -quantity }
+        }, { new: true });
+
+        if (!updatedProduct) {
+            return res.status(404).send({ "message": "Product Not found" });
+        }
+        res.status(200).send({ "message": "Successfully decreased the product quantity", data: updatedProduct });
+    } catch (error) {
+        res.status(500).json({ "error": error.message });
+    }
+});
+
+
+module.exports={productRouter}

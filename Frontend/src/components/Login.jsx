@@ -8,6 +8,20 @@ const Login = () => {
         e.preventDefault();
         console.log("Username:", username);
         console.log("Password:", password);
+
+        let send_data={email:username,password}
+
+        fetch('http://localhost:8080/login',{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(send_data)
+        }).then(res=>res.json())
+        .then(res=>{
+            console.log(res);
+            localStorage.setItem("token",JSON.stringify(res.token));
+        }).catch(err=>{
+            console.log(err);
+        })
     };
 
     const containerStyle = {

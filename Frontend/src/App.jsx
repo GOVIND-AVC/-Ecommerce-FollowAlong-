@@ -7,6 +7,7 @@ import ProductDetail from "./components/ProductDetail"; // Import the ProductDet
 
 import ProductForm from "./components/ProductForm";
 import EditProduct from "./components/EditProduct";
+import Cart from "./components/Cart";
 
 function App() {
     return (
@@ -19,7 +20,7 @@ function App() {
                 <Route path="/productForm" element={<ProductForm />} />
                 <Route path="/editProduct/:id" element={<EditProduct />} />
                 <Route path="/product/:id" element={<ProductDetail />} /> {/* Add route for ProductDetail */}
-
+                <Route path="/cart" element={<Cart />} />
                 <Route path="/product/:id" element={<ProductDetail />} /> {/* Add route for ProductDetail */}
 
             </Routes>
