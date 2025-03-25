@@ -8,14 +8,24 @@ const { loginRouter } = require("./routes/login.route");
 const { signupRouter } = require("./routes/signup.route");
 const { cartRouter } = require("./routes/cart.route");
 
-
 require('dotenv').config();
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-let connection = mongoose.connect(process.env.mongoURL);
+// console.log('MongoDB connection string:', process.env.mongoURL); // Log the connection string for debugging
+// if (!process.env.mongoURL) {
+//     console.error('MongoDB connection string is undefined. Please check your .env file.');
+// } else {
+    let connection = mongoose.connect(process.env.mongoURL)
+// }
+
+
+
+    connection.then(() => console.log('MongoDB connection string:', process.env.mongoURL)) // Log the connection string for debugging
+    .catch(err => console.error('MongoDB connection error:', err)); // Log any connection errors
+
 
 app.get("/ping", (req, res) => {
     res.send("pong");
@@ -36,11 +46,11 @@ app.post("/create", async (req, res) => {
     }
 });
 
-app.use(signupRouter);
-app.use(loginRouter);
+// Use routers with base paths
+app.use('/signup', signupRouter);
+app.use('/login', loginRouter);
 app.use("/product", productRouter);
 app.use("/cart", cartRouter);
-
 
 app.listen(process.env.PORT, async () => {
     try {
@@ -50,5 +60,5 @@ app.listen(process.env.PORT, async () => {
         console.log(error);
     }
 
-    console.log(`Serverr is running on- http://localhost:${process.env.PORT}`);
+    console.log(`Server is running on- http://localhost:${process.env.PORT}`);
 });

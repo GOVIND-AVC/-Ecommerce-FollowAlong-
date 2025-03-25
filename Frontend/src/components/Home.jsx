@@ -5,7 +5,8 @@ import { useEffect } from "react"; // Removed duplicate import
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import { Link } from "react-router-dom"; // Import Link for navigation
-import Cart from "./cart";
+import Cart from "./ProductCard";
+import ProductCard from "./ProductCard";
 
 // import { useEffect, useState } from "react";
 
@@ -28,7 +29,7 @@ function Home() {
         }).catch((err)=>{
             console.log(err)
         })
-    })
+    },[])
 
 
     const handleDelete=async(id)=> {
@@ -61,6 +62,8 @@ function Home() {
         backgroundColor: "#f1f1f1",
     };
 
+    console.log(productData)
+
     return (
         <div>
             <div style={containerStyle}>
@@ -68,9 +71,9 @@ function Home() {
             </div>
             <div style={cartStyle}>
                 {productData?.map((product) => (
-                <Cart key={product.id} product={product} onDelete={() => handleDelete(product._id)}>
+                <ProductCard key={product.id} product={product} onDelete={() => handleDelete(product._id)}>
                     <Link to={`/product/${product._id}`}>{product.productName}</Link> {/* Link to ProductDetail */}
-                </Cart>
+                </ProductCard>
 
 
                 ))}

@@ -6,7 +6,7 @@ require('dotenv').config();
 
 let signupRouter = express.Router();
 
-signupRouter.post("/signup", async (req, res) => {
+signupRouter.post("/", async (req, res) => {
     console.log(req.body);
     const { name, email, password } = req.body;
     const userPresent = await userModel.findOne({ email });

@@ -10,7 +10,9 @@ cartRouter.post('/add', authMiddleware, async (req, res) => {
 
     try {
         const { productId, quantity } = req.body;
-        const userId = req.user;
+        const userId = req.user; // Log user ID for debugging
+        console.log('User ID:', userId); // Log user ID
+
 
         // Validate product exists
         const product = await productModel.findById(productId);
@@ -48,9 +50,7 @@ cartRouter.post('/add', authMiddleware, async (req, res) => {
 // Get cart products for user
 cartRouter.get('/products', authMiddleware, async (req, res) => {
     try {
-        const user = await userModel.findById(req.user)
-
-            .populate('cart.productId', 'name price image');
+        const user = await userModel.findById(req.user).populate('cart.productId');
             
         if (!user) {
             return res.status(404).send({ message: 'User not found' });
